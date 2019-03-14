@@ -1,0 +1,12 @@
+<template name="frontofficeBannerIndex">
+
+	{{#if currentUser }}
+		{{> frontOfficeSearchBanner}}
+	{{else}}
+	    <img src="/images/neighbor-cloud.png">
+	    <h2>
+	        YOUR Facebook Friends and YOUR Neighbors are letting you know who the best LOCAL Service providers are.
+	    </h2>
+	    <a href="{{pathFor 'auth.signup'}}">JOIN NOW FOR FREE</a>
+    {{/if}}
+</template>

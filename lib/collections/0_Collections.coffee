@@ -1,0 +1,7 @@
+@BusinessProfiles = new Meteor.Collection('businessProfiles')
+@ServiceGroups = new Meteor.Collection('serviceGroups')
+@ServiceLocations = new Meteor.Collection('serviceLocations')
+@SpecialtyTags = new Meteor.Collection('specialtyTags')
+@Reviews = new Meteor.Collection('reviews')
+@Neighborhoods = new Meteor.Collection('neighborhoods')
+@States = new Meteor.Collection('states')

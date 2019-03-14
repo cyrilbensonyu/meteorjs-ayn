@@ -1,0 +1,66 @@
+<template name="frontofficeFooter">
+	<footer>
+        <div class="newsletter">
+            <div class="container">
+                <div class="ui grid">
+                    <div class="sixteen wide column relative">
+                        <div class="banner-caption">
+                            <div class="caption">
+                                <h2>
+                                    Don't be a<br /><strong>Bad Neighbor.</strong>
+                                </h2>
+                                <p>
+                                    Refer Service Providers<br />and Join Our Community
+                                </p>
+                                <a href="{{pathFor 'auth.signup'}}">JOIN NOW FOR FREE</a>
+                            </div>
+                        </div>
+                        <div class="banner-image">
+                            <img src="/images/sam/sam-1.png" class="mad-walter" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="ui grid">
+                    <div class="eight wide column">
+                        <div class="the-copyright">
+                            <p>&copy; 2016 Ask Your Neighbors<br />All rights reserved.Digital Marketing and Design by CSPreston.</p>
+                        </div>
+                    </div>
+                    <div class="eight wide column">
+                        <div class="socials">
+                            <ul>
+                                <li>
+                                    CONNECT WITH US
+                                </li>
+                                <li>
+                                    <a href="{{getSocialMediaLink 'twitter'}}" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{getSocialMediaLink 'facebook'}}" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{getSocialMediaLink 'google'}}" target="_blank">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{getSocialMediaLink 'youtube'}}" target="_blank">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>

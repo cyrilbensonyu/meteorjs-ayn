@@ -1,0 +1,210 @@
+<template name="controlpanelEditBusinessOwner">
+    {{#with getBusinessProfile}}
+    <div class="ui segments">
+        <div class="ui segment edit-business-container">
+            <form class="form-horizontal">
+
+                <div class="form-left">
+                    <h4>Business Information</h4>
+                    <div class="form-group">
+                        {{> textInputAdmin name="businessName" value=businessName }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceGroup">Service Group</label>
+                        <select class="form-control select2" id="serviceGroup"
+                                data-placeholder="Select Service Group" data-selected="{{serviceGroup}}">
+                            <option></option>
+                            {{#each getServiceGroups}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="firstName" value=firstName}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="firstName" value=firstName}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="phoneNumber" value=phoneNumber}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="lastName" value=lastName}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="website" value=website}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="address" value=address}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="email" value=email}}
+                    </div>
+
+                    <div class="form-group">
+                         {{> textInputAdmin name="yearsInBusiness" value=yearsInBusiness}}
+                    </div>
+                </div>
+                
+                <div class="form-right">
+                    <h4>Opening Hours</h4>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="monday" startTime=openingHours.monday_start_time endTime=openingHours.monday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="tuesday" startTime=openingHours.tuesday_start_time endTime=openingHours.tuesday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="wednesday" 
+                        startTime=openingHours.wednesday_start_time endTime=openingHours.wednesday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="thursday" 
+                        startTime=openingHours.thursday_start_time endTime=openingHours.thursday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="friday" 
+                        startTime=openingHours.friday_start_time endTime=openingHours.friday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="saturday" 
+                        startTime=openingHours.saturday_start_time endTime=openingHours.saturday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> openingHoursTimePicker day="sunday" 
+                        startTime=openingHours.sunday_start_time endTime=openingHours.sunday_end_time}}
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" id="24hours" value="24hours" class="hidden"
+                                   checked={{availableForEmergency}}>
+
+                        <label>Available for 24 hours emergency service</label>
+                    </div>
+                </div>    
+
+                <div class="form-center">
+                    <div class="form-group form-business-category">
+                        <div class="label main-label">
+                            <label for="serviceGroup">Please select if your business is</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="isInsured" value="isInsured" checked={{isInsured}}> Insured
+                            </label>
+                            <label class="checkbox-inline bonded-checkbox">
+                                <input type="checkbox" id="isBonded" value="isBonded" checked={{isBonded}}> Bonded
+                            </label>
+                        </div>
+
+                        <div class="form-licensing">
+                            <select class="licensing" name="licensing" id="licensing">
+                                <option value="1">Not Licensed</option>
+                                <option value="2">Licensed</option>
+                                <option value="3">No Licensing Required</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="serviceGroup">Service Locations</label>
+                        </div>
+
+                        <select multiple class="form-control select2" id="serviceLocations"
+                                data-tags-enabled="true" data-selected="{{serviceLocations}}">
+                            {{#each getServiceLocations}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="serviceGroup">Specialties</label>
+                        </div>
+
+                        <select multiple class="form-control select2" id="specialties" data-tags-enabled="true"
+                                data-selected="{{specialties}}">
+                            {{#each getSpecialtyTags}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="description">
+                                Description
+                            </label>
+                        </div>
+
+                        <textarea class="form-control" id="businessDescription" rows="6"
+                                          style="resize:none;">
+                            {{businessDescription}}
+                        </textarea>
+                    </div>
+                </div>
+    
+                <div class="form-left">
+                    <h4>Personal Information</h4>
+
+                    <div class="form-group">
+                        <label for="profile-pic">Company Profile Picture</label>
+                        <button>Browse</button>
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="firstName" value=firstName idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="lastName" value=lastName idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="address" value=address idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="city" value=city idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="zip" value=zip idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                        {{> textInputAdmin name="email" value=email idPrefix="personal"}}
+                    </div>
+
+                    <div class="form-group">
+                         {{> textInputAdmin name="phoneNumber" value=phoneNumber idPrefix="personal"}}
+                    </div>
+                </div>    
+
+                <div class="row form-navigation">
+                   <button type="submit" class="ui positive button"> Save </button>
+                </div>
+            </form>
+        </div>
+    </div>        
+    {{else}}
+        {{> loader}}
+    {{/with}}
+</template>

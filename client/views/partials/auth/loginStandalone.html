@@ -1,0 +1,28 @@
+<template name="loginStandalone">
+    {{#if currentUser }}
+        {{> frontOfficeSearchBanner}}
+    {{else}}
+        <div class="login-container-standalone">
+            <h2>Sign In</h2>
+            <div class="ui centered grid">
+                <div class="sixteen wide center aligned column">
+                    <button class="fb-login-btn" id="loginWithFacebook">Login with Facebook</button>
+                </div>
+                <div class="sixteen wide center aligned column">
+                    <span>--------------- or --------------</span>
+                </div>
+                <div class="sixteen wide center aligned column">
+                    <form class="ui form" id="loginForm">
+                        <div class="block field">
+                            <input type="text" name="login-email" placeholder="Email">
+                        </div>
+                        <div class="block field">
+                            <input type="password" name="login-password" placeholder="Password">
+                        </div>
+                        <button class="ui orange button" type="submit">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>

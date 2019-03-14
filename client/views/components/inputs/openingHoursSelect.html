@@ -1,0 +1,44 @@
+<template name="openingHoursSelect">
+    <div class="form-group">
+        <label for="openingHours{{formatDay day}}">{{formatDay day}}</label>
+        <select class="form-control select2" id="openingHours{{formatDay day}}" data-selected={{preselect}}>
+            <option value="08:00 AM - 03:00 PM">08:00 AM - 03:00 PM</option>
+            <option value="08:00 AM - 04:00 PM" selected>08:00 AM - 04:00 PM</option>
+            <option value="08:00 AM - 05:00 PM">08:00 AM - 05:00 PM</option>
+            <option value="08:00 AM - 06:00 PM">08:00 AM - 06:00 PM</option>
+            <option value="08:00 AM - 07:00 PM">08:00 AM - 07:00 PM</option>
+            <option value="08:00 AM - 08:00 PM">08:00 AM - 08:00 PM</option>
+
+            <option value="09:00 AM - 03:00 PM">09:00 AM - 03:00 PM</option>
+            <option value="09:00 AM - 04:00 PM">09:00 AM - 04:00 PM</option>
+            <option value="09:00 AM - 05:00 PM">09:00 AM - 05:00 PM</option>
+            <option value="09:00 AM - 06:00 PM">09:00 AM - 06:00 PM</option>
+            <option value="09:00 AM - 07:00 PM">09:00 AM - 07:00 PM</option>
+            <option value="09:00 AM - 08:00 PM">09:00 AM - 08:00 PM</option>
+
+            <option value="10:00 AM - 03:00 PM">10:00 AM - 03:00 PM</option>
+            <option value="10:00 AM - 04:00 PM">10:00 AM - 04:00 PM</option>
+            <option value="10:00 AM - 05:00 PM">10:00 AM - 05:00 PM</option>
+            <option value="10:00 AM - 06:00 PM">10:00 AM - 06:00 PM</option>
+            <option value="10:00 AM - 07:00 PM">10:00 AM - 07:00 PM</option>
+            <option value="10:00 AM - 08:00 PM">10:00 AM - 08:00 PM</option>
+
+            <option value="11:00 AM - 03:00 PM">11:00 AM - 03:00 PM</option>
+            <option value="11:00 AM - 04:00 PM">11:00 AM - 04:00 PM</option>
+            <option value="11:00 AM - 05:00 PM">11:00 AM - 05:00 PM</option>
+            <option value="11:00 AM - 06:00 PM">11:00 AM - 06:00 PM</option>
+            <option value="11:00 AM - 07:00 PM">11:00 AM - 07:00 PM</option>
+            <option value="11:00 AM - 08:00 PM">11:00 AM - 08:00 PM</option>
+
+            <option value="12:00 PM - 03:00 PM">12:00 PM - 03:00 PM</option>
+            <option value="12:00 PM - 04:00 PM">12:00 PM - 04:00 PM</option>
+            <option value="12:00 PM - 05:00 PM">12:00 PM - 05:00 PM</option>
+            <option value="12:00 PM - 06:00 PM">12:00 PM - 06:00 PM</option>
+            <option value="12:00 PM - 07:00 PM">12:00 PM - 07:00 PM</option>
+            <option value="12:00 PM - 08:00 PM">12:00 PM - 08:00 PM</option>
+
+            <option value="alltime">24 Hours</option>
+            <option value="closed">Closed</option>
+        </select>
+    </div>
+</template>

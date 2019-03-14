@@ -1,0 +1,138 @@
+<template name="reviewForm">
+	<div class="business-info-banner">
+        <div class="container"> 
+            <div class="sixteen wide center aligned column">
+                <a href="{{pathFor 'index'}}" class="btn btn-home">
+                    Home
+                </a>
+
+                <a href="{{pathFor 'index'}}" class="img-container">
+                    <img src="/images/neighbor-cloud.png" alt="AYN Logo">
+                </a>
+
+                <a href="#" class="btn btn-logout" data-logout>
+                    Logout
+                </a>
+            </div>  
+        </div>
+    </div>
+
+    <div class="ui centered grid container business-info-review-container">
+
+		<div class="ui centered grid container review-form-main-container" id="leave-review">    
+	        <div class="review-form-container">
+	            <div class="sixteen wide aligned column header">
+	                <h2>
+	                    Leave a Review
+	                </h2>
+	            </div>
+
+	            <div class="main-content">
+	            	<form method="post">
+		            	<div class="date-of-service column">
+		            		<label> What is the date of service? </label>
+		            		<input type="text" name="serviceDate" class="service-date" required>
+		            	</div>
+
+		            	<div class="mood-rating column">
+		            		<label> How happy were you with the service? </label>
+		            		<input type="hidden" id="service-rating" value="5">
+
+		            		<div class="moods-option" data-value="5">
+		            			<div class="very-happy option">
+		            				<img src="/images/sam/sam-5-small.png" alt="Very Happy">
+		            				<label class="selected">Very Happy</label>
+		            			</div>
+
+		            			<div class="happy option" data-value="4">
+		            				<img src="/images/sam/sam-5-small.png" alt="Happy">
+		            				<label>Happy</label>
+		            			</div>
+
+		            			<div class="netural option" data-value="3">
+		            				<img src="/images/sam/sam-4-small.png" alt="Neutral">
+		            				<label>Neutral</label>
+		            			</div>
+
+		            			<div class="unhappy option" data-value="2">
+		            				<img src="/images/sam/sam-6-large.png" alt="Unhappy">
+		            				<label>Unhappy</label>
+		            			</div>
+
+		            			<div class="very-unhappy option" data-value="1">
+		            				<img src="/images/sam/sam-2-small.png" alt="Very Unhappy">
+		            				<label>Very Unhappy</label>
+		            			</div>
+		            		</div>
+		            	</div>
+
+		            	<div class="recommendation column">
+		            		<label> Would you recommend this business? </label>
+		            		<input type="hidden" id="service-approval" value="1">
+		            		<div class="recommendation-option">
+		            			<img src="/images/thumbs-up.png" alt="Thumbs Up" class="thumbs-up recommendation-option-button selected" data-radio="thumbs-up" data-value="1">
+
+		            			<img src="/images/thumbs-down.png" alt="Thumbs Down" class="thumbs-down recommendation-option-button" data-radio="thumbs-down" data-value="0">
+		            		</div>
+		            	</div>
+
+		            	<div class="review-content column">
+		            		<label> What's your review? </label>
+		            		<textarea name="content" id="" cols="30" rows="10" required></textarea>
+		            	</div>
+
+		            	<div class="photos column">
+		            		<label> Would you like to share some photos of the service (optional)? </label>
+		            		<div class="share-photos">
+		            			<div class="before img-container">
+		            				{{#with currentUploadBefore}}
+									    Uploading <b>{{file.name}}</b>:
+									    <span id="progress">{{progress.get}}%</span>
+								  	{{else}}
+								  		{{#if imageBeforeFile}}
+						                    <img src="{{imageBeforeFile.link}}" alt="{{imageBeforeFile.name}}" />
+											
+											<input type="hidden" name="beforeImage" value="{{ imageBeforeFile._id }}">
+						                {{else}} 
+										    <img src="/images/bfr.jpg" alt="Before">
+				            			{{/if}}		
+
+				            			<button class="upload upload-before" data-input="file-before">Upload Before Picture</button>
+
+		            					<input type="file" id="file-before" class="hidden"  accept="image/*">
+								  	{{/with}}
+		            			</div>
+
+		            			<div class="after img-container img-container-after">
+		            				{{#with currentUploadAfter}}
+									    Uploading <b>{{file.name}}</b>:
+									    <span id="progress">{{progress.get}}%</span>
+								  	{{else}}
+								  		{{#if imageAfterFile}}
+						                    <div class="field profile-image-container">
+						                        <img src="{{imageAfterFile.link}}" alt="{{imageAfterFile.name}}" />
+						                    </div>
+											
+											<input type="hidden" name="afterImage" value="{{ imageAfterFile._id }}">
+						                {{else}} 
+										    <img src="/images/aft.jpg" alt="After">
+				            			{{/if}}		
+
+				            			<button class="upload upload-after" data-input="file-after">Upload After Picture</button>
+				            				<input type="file" id="file-after" class="hidden"  accept="image/*">
+								  	{{/with}}
+		            				
+		            			</div>
+		            		</div>
+		            	</div>
+
+		            	<div class="send-review column">
+		            		<a href="#" id="back" class="back">Back</a>
+		            		<button type="submit" class="submit-review">Submit</button>
+		            	</div>
+		           	</form> 	
+	            </div>
+	        </div>
+	    </div>
+	</div>    
+</template>

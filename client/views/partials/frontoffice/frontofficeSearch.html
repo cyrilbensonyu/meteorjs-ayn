@@ -1,0 +1,14 @@
+<template name="frontofficeSearch">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="arrow-box">
+            <h3 class="text-center">Ask Your Neighbors for a Local Service Provider</h3>
+            <select id="frontofficeSearch" class="form-control select2" data-placeholder="Start your search!">
+                <option></option>
+                {{#each getBusinesses}}
+                    <option value="{{_id}}">{{businessName}} ({{serviceGroupName}})</option>
+                {{/each}}
+            </select>
+            <h3 class="text-center">or click a service below</h3>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,96 @@
+<template name="profileBusinessOwnerPersonalInformation">
+    <div class="ui centered grid profile-form-container">
+        <div class="row title-main-container">
+            <div class="sixteen wide center aligned column">
+                <h3>Personal Information</h3>
+            </div>
+        </div>
+        <div class="sixteen wide center aligned column">
+            <form class="ui form">
+                {{#if isNull fbProfilePic}}
+                    <div class="field">
+                        {{#with currentUpload}}
+                            Uploading <b>{{file.name}}</b>:
+                            <span id="progress">{{progress.get}}%</span>
+                        {{else}}
+                            <a href="#" class="ui orange button" id="browse-photo">Upload Profile Picture</a>
+                            <input type="file" class="hidden hide" id="upload-photo" accept="image/*">
+                        {{/with}}
+                    </div>
+                {{/if}}
+
+                {{#with profileImage}}
+                    <div class="field profile-image-container">
+                        <img src="{{ link }}" alt="{{ name }}" />
+
+                        <input type="hidden" name="profileImage" id="profileImage" value="{{ _id }}">
+                    </div>
+
+                {{else}} 
+
+                    {{#if fbProfilePic}}
+                         <div class="field profile-image-container">
+                            <img src="{{ fbProfilePic }}" alt="Profile Picture" class="placholder-profile-image">
+                        </div>  
+                    {{else}}
+                        <div class="field profile-image-container">
+                            <img src="/images/placeholder-image.jpg" alt="Placeholder Image" class="placholder-profile-image">
+                        </div>  
+                    {{/if}} 
+                {{/with}}
+                
+                <div class="two fields">
+                    {{> textInput name="firstName" value=personal.firstName class="required"}}
+                    {{> textInput name="lastName" value=personal.lastName class="required"}}
+                </div>
+                <div class="two fields">
+                    {{> textInput name="email" value=personal.email class="required"}}
+                    {{> textInput name="address" value=personal.address class="required"}}
+                </div>
+                <div class="two fields">
+                    {{> textInput name="city" value=personal.city class="required"}}
+                    
+                    <div class="field">
+                        <label for="state">State <span class="required">*</span></label>
+                        <select class="form-control select2 required" id="state"
+                                data-placeholder="Select State" data-selected="{{personal.state}}" placeholder="State">
+                            <option></option>
+                            {{#each getStates}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <p class="error-message required"></p>
+                    </div>
+                </div>
+                
+                <div class="two fields">
+                    {{> textInput name="zip" value=personal.zip class="required"}}
+                    {{> textInput name="phoneNumber" value=personal.phoneNumber class="required"}}
+                </div>
+
+                <div class="two fields">
+                    <div class="field">
+                        <label for="neighborhood">Neighborhood <span class="required">*</span></label>
+                        <select class="form-control select2 required" id="neighborhood"
+                                data-placeholder="Select Neighborhood" data-selected="{{personal.neighborhood}}">
+                            <option></option>
+                            {{#each getNeighborhoods}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <p class="error-message required"></p>
+                    </div>
+                </div>
+                <button type="submit" class="ui orange button">Save</button>
+            </form>
+                <!--{{#if isPasswordUser}}-->
+                <!--{{/if}}-->
+    
+            {{#unless step2Complete }}
+                <div class="field add-business-button">
+                    <input type="checkbox" id="addBusinessCheckBox"> Add Business Information
+                </div>   
+            {{/unless}}  
+        </div>
+    </div>
+</template>

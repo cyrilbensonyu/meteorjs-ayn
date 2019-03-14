@@ -1,0 +1,37 @@
+{
+  "public": {
+    "facebookPermissions":[
+      "email", "public_profile","user_location", "user_friends","user_website"
+    ],
+    "socialMedia":{
+      "links":{
+        "twitter":"",
+        "facebook":"",
+        "youtube":"",
+        "google":""
+      }
+    },
+    "emails":{
+      "support":"support@askyourneighbor.com"
+    }
+  },
+  "private": {
+    "mail":{
+      "sparkpost":{
+        "host":"smtp.sparkpostmail.com",
+        "port":587,
+        "user":"SMTP_Injection",
+        "apiKey":"9f2af5a808dc6145ca87ef7d048e1a3acf5eb751",
+        "defaults":{
+          "from":"askyourneighbors@sitegage.com"
+        }
+      }
+    },
+    "oAuth": {
+      "facebook": {
+        "appId": "235460643547442",
+        "secret": "40d0aa6c5e48c72f33a57c8fd824c6b1"
+      }
+    }
+  }
+}

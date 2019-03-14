@@ -1,0 +1,47 @@
+<template name="frontofficeBanner">
+	<section class="banner">
+        <div class="container">
+            <div class="ui grid">
+                <div class="sixteen wide column unrelate">
+                    <div class="navigation" id="navigation">
+
+                    {{#if currentUser }}
+
+                        {{#if isAdmin}}
+                            <a href="{{pathFor 'admin.dashboard'}}" class="add-button three wide"><i class="fa fa-bars"></i> Dashboard</a>
+                        {{else}}
+                            <a href="{{pathFor 'app.profile'}}" class="add-button three wide"><i class="fa fa-bars"></i> Profile</a>
+                        {{/if}}
+                         <a href='#' class="add-button login-button logout-button three wide" data-logout><i class="fa fa-power-off"></i> Logout</a>
+                    {{else}}
+                        <a href="{{pathFor 'auth.signup'}}" class="add-button three wide"><i class="fa fa-plus"></i> Add Your Business</a>
+
+                         <a href="{{pathFor 'auth.login'}}" class="add-button login-button three wide"><i class="fa fa-arrow-right"></i> Login</a>
+                    {{/if}}
+                        
+                    </div>
+                    <div class="banner-caption">
+
+                    {{#if currentUser }}
+                        <div class="caption search-caption">
+                            <!--{{#transition in="fadeIn" out="fadeOut"}}-->
+                                {{> Template.dynamic template=bannerTemplate}}
+                            <!--{{/transition}}-->
+                        </div>
+
+                        <div class="sam-caption" id="sam-caption">
+                            <img class="walter-img" src="/images/sam/sam-5.png">
+                        </div>
+                    {{else}}
+                        <div class="caption">
+                            <!--{{#transition in="fadeIn" out="fadeOut"}}-->
+                                {{> Template.dynamic template=bannerTemplate}}
+                            <!--{{/transition}}-->
+                        </div>
+                    {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

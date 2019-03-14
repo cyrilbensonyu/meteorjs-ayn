@@ -1,0 +1,366 @@
+.registration-container {
+	padding-top: 20px !important;
+	padding-bottom: 10px !important;
+
+	.registration-logo {
+		width: 20% !important;
+
+		a {
+			width: 15em;
+			height: 10em;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	h1 {
+		font-size: 30px;
+	}
+
+	.form-container {
+		border: 1px solid rgba(34, 36, 38, 0.15);
+		border-radius: 10px;
+		border-bottom: 0 !important;
+		border-bottom-left-radius: 0px !important;
+		border-bottom-right-radius: 0px !important;
+
+		.title-main-container {
+			border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+			background-color: #049fa1;
+			border-top-left-radius: 9px;
+			border-top-right-radius: 9px;
+
+			h3 {
+				color: #fff;
+			}
+		}
+
+		.upload-business-photo-container {
+			margin-bottom: 2em;
+
+			.button {
+				margin-right: 0 !important;
+			}
+		}
+
+		.business-image-container {
+		    width: 30%;
+		    margin: 0 auto;
+		    height: 10em;
+
+		    img {
+		    	width: 100%;
+    			height: 100%;
+    			object-fit: cover;
+		    }
+		}
+
+		.category-container {
+			margin: 2rem 0 3rem;
+
+			.container {
+				border: 1px solid rgba(34, 36, 38, 0.15);
+				border-radius: 10px;
+				padding: 0 !important;
+			
+				.title {
+					text-align: center;
+					padding: 1rem 0;
+					width: 100%;
+					border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+					background-color: #049fa1;
+					color: #fff;
+					border-top-left-radius: 9px;
+					border-top-right-radius: 9px;
+				}
+
+				.two {
+					padding: 0.5rem 2rem 0;
+
+					.field {
+
+						.checkbox {
+						    position: relative;
+							left: 25%;
+						}
+					}
+				}
+
+				.field {
+
+					.checkbox {
+						position: relative;
+						left: 30%;
+					}
+
+					.licensing {
+						width: 80%;
+						height: 40px;
+						margin: 0 auto 1.5rem;
+
+					}
+				}
+			}
+		}
+
+		input[type="text"], input[type="email"], input[type="number"] {
+			padding: 10px;
+			height: 40px;
+		}
+
+		.checkbox-label {
+
+			&:before {
+				margin-top: 3px;
+			}
+		}
+
+		.select2-container {
+			width: 100% !important;
+
+			.select2-selection--single {
+    			height: 100%;
+    			padding: 5px 20px 5px 20px;
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+
+    			.select2-selection__arrow {
+    				height: 100%;
+    				padding: 20px;
+    			}
+    		}
+
+    		.select2-selection--multiple {
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+
+    			.select2-selection__rendered {
+    				padding: 2px 5px;
+    			}
+    		}
+		}
+	}
+ 
+	.form-container-opening {
+		border: 1px solid rgba(34, 36, 38, 0.15);
+		border-radius: 10px;
+		border-top-left-radius: 0px !important;
+		border-top-right-radius: 0px !important;
+
+		.opening {
+			padding: 1rem 0 !important;
+			width: 100%;
+			background-color: #049fa1;
+			border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+
+			h3 {
+				color: #fff;
+			}
+		}
+
+		.form-group {
+			label {
+				font-weight: 700 !important;
+			}
+
+			.opening-range {
+				overflow: auto;
+				padding: 0.5rem 3rem;
+				margin-top: 0.5rem;
+
+				.timepicker {
+					width: 45%;
+					display: inline;
+					text-align: center;
+				}
+
+				.start-time {
+					float: left;
+				}
+
+				.end-time {
+					float: right;
+				}
+
+				.to {
+					width: 10%;
+					position: relative;
+					top: 0.3rem;
+				}
+			}
+		}
+
+		.select2-container {
+			width: 100% !important;
+
+			.select2-selection--single {
+    			height: 100%;
+    			padding: 5px 20px 5px 20px;
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+
+    			.select2-selection__arrow {
+    				height: 100%;
+    				padding: 20px;
+    			}
+    		}
+
+    		.select2-selection--multiple {
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+    			height: 40px;
+
+    			.select2-selection__rendered {
+    				padding: 2px 5px;
+    			}
+    		}
+		}
+	}
+
+	.form-container-step2 {
+		border: 1px solid rgba(34, 36, 38, 0.15);
+		border-radius: 10px;
+
+		.title-main-container {
+			border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+			background-color: #049fa1;
+			border-top-left-radius: 9px;
+			border-top-right-radius: 9px;
+
+			h3 {
+				color: #fff;
+			}
+		}
+
+		input[type="text"], input[type="email"], input[type="number"] {
+			padding: 10px;
+			height: 40px;
+		}
+
+		.checkbox-label {
+
+			&:before {
+				margin-top: 3px;
+			}
+		}
+
+		.upload-photo-container {
+
+			.button {
+				margin-right: 0 !important;
+			}
+		}
+
+		.profile-image-container {
+			width: 200px;
+		    height: 199px;
+		    margin: 0 auto;
+
+		    img {
+		    	height: 100%;
+		    	width: 100%;
+		    	object-fit: cover;
+		    }
+		}
+
+		.select2-container {
+			width: 100% !important;
+
+			.select2-selection--single {
+    			height: 100%;
+    			padding: 5px 20px 5px 20px;
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+
+    			.select2-selection__arrow {
+    				height: 100%;
+    				padding: 20px;
+    			}
+    		}
+
+    		.select2-selection--multiple {
+    			border: 1px solid rgba(34, 36, 38, 0.15);
+    			height: 40px;
+
+    			.select2-selection__rendered {
+    				padding: 2px 5px;
+    			}
+    		}
+		}
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.registration-container {
+		overflow-x: hidden;
+
+		.registration-logo {
+			width: 100% !important; 
+		}
+
+		.form-container {
+
+			.form {
+
+				.eight.column {
+					padding: 0 !important;
+					width: 100% !important;
+				}
+			}
+		}
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	.registration-container {
+		overflow-x: hidden;
+
+		.registration-logo {
+			width: 100% !important; 
+		}
+
+		.form-container {
+
+			.form {
+
+				.eight.column {
+					padding: 0 !important;
+					width: 100% !important;
+				}
+			}
+		}			
+	}
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	.registration-container {
+		overflow-x: hidden;
+
+		.registration-logo {
+			width: 100% !important; 
+		}
+
+		.form-container {
+
+			.form {
+
+				.eight.column {
+					padding: 0 !important;
+					width: 100% !important;
+				}
+			}
+		}
+	}
+}

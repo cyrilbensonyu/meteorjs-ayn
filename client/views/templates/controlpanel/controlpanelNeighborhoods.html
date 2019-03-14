@@ -1,0 +1,76 @@
+<template name="controlpanelNeighborhoods">
+    <div class="ui segments">
+        <div class="ui segment">
+            <h3 class="ui blue header">Neighborhoods</h3>
+        </div>
+
+        <div class="ui segment">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <h4>Create new Neighborhood</h4>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="newNeighborhoodName" class="control-label col-md-1 col-md-offset-4">Name</label>
+                        <div class="col-md-3">
+                            <input type="text" id="newNeighborhoodName" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newNeighborhoodCity" class="control-label col-md-1 col-md-offset-4">City</label>
+                        <div class="col-md-3">
+                            <select id="newNeighborhoodCity" class="form-control select2" data-placeholder="Select a Service Location">
+                                <option></option>
+                                {{#each getServiceLocations}}
+                                    <option value="{{_id}}">{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-center submit-btn-container">
+                            <button type="submit" class="ui positive button btn-sm">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="ui segment">
+            <div class="col-md-12">
+                <table class="ui celled table">
+                    <thead>
+                    <tr>
+                        <th class="col-md-2">Name</th>
+                        <th class="col-md-2">City</th>
+                        <th class="col-md-2">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#if hasNeighborhoods}}
+                        {{#each getNeighborhoods}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td data-when-edit="selectServiceLocation">{{cityName}}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="ui primary button editNeighborhood">Edit</button>
+                                        <button type="button" class="ui negative button deleteNeighborhood">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    {{else}}
+                        <tr>
+                            <td colspan="3">
+                                <div class="alert alert-info">
+                                    <p>
+                                        No Neighborhoods
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/if}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</template>

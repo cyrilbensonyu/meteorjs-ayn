@@ -1,0 +1,27 @@
+{
+  "name": "ayn",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "Faker": "^0.7.2",
+    "babel-runtime": "^6.18.0",
+    "jquery": "^3.1.1",
+    "meteor-node-stubs": "~0.2.0",
+    "tooltipster": "^4.1.6",
+    "validate.js": "^0.11.1"
+  }
+}

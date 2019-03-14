@@ -1,0 +1,32 @@
+<template name="profileBusinessOwner">
+    <div class="ui centered grid profile-container">
+        <div class="logout-container">
+            <div class="sixteen wide center aligned column">
+                <a href="javascript:void(0)" data-logout>Logout?</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="profile-logo">
+                <a href="{{pathFor 'index'}}">
+                    <img src="/images/neighbor-cloud.png" alt="AYN Logo">
+                </a>
+            </div>
+            <div class="sixteen wide center aligned column container">
+                <div class="ui teal raised">
+                {{#if Template.subscriptionsReady}}
+                    {{#with getBusinessProfile}}
+                    
+                        {{> profileBusinessOwnerPersonalInformation }}
+
+                        {{> profileBusinessOwnerChangePassword }}
+                
+                        {{> profileBusinessOwnerBusinessInformation }}
+                    {{/with}}
+                {{else}}
+                    {{> loader}}
+                {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

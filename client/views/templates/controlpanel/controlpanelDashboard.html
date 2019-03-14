@@ -1,0 +1,87 @@
+<template name="controlpanelDashboard">
+    <div class="dashboard-container">
+        <div class="ui sidebar inverted vertical menu" id="controlpanelDashboardNavigation">
+            <a class="item">
+                <h4 class="ui grey header">John Doe</h4>
+                <p>Sign Out</p>
+            </a>
+            <a class="{{isActiveRoute 'admin.businessOwners' class='active gray'}} item"
+               href="{{pathFor 'admin.businessOwners'}}">
+                Business Owners
+            </a>
+            <a class="{{isActiveRoute 'admin.homeOwners' class='active gray'}} item"
+               href="{{pathFor 'admin.homeOwners'}}">
+                Home Owners
+            </a>
+            <a class="{{isActiveRoute 'admin.neighborhoods' class='active gray'}} item"
+               href="{{pathFor 'admin.neighborhoods'}}">
+                Neighborhoods
+            </a>
+            <a class="{{isActiveRoute 'admin.serviceGroups' class='active gray'}} item"
+               href="{{pathFor 'admin.serviceGroups'}}">
+                Service Groups
+            </a>
+            <a class="{{isActiveRoute 'admin.serviceLocations' class='active gray'}} item"
+               href="{{pathFor 'admin.serviceLocations'}}">
+                Service Locations
+            </a>
+            <a class="{{isActiveRoute 'admin.specialtyTags' class='active gray'}} item"
+               href="{{pathFor 'admin.specialtyTags'}}">
+                Specialty Tags
+            </a>
+            <a class="{{isActiveRoute 'admin.changePassword' class='active gray'}} item"
+               href="{{pathFor 'admin.changePassword'}}">
+                Change Password
+            </a>
+            <a class="item" data-logout>Logout</a>
+        </div>
+        <div class="pusher">
+            <div class="tab-content ui-grid-container">
+                <div class="ui left fixed vertical inverted menu" id="controlpanelDashboardNavigation">
+                    <a class="item item-logo"
+                       href="{{pathFor 'index'}}">
+                        <img src="/images/neighbor-cloud.png" alt="Home">
+                    </a>
+                    <a class="item">
+                        <h4 class="ui grey header">ADMINISTRATOR</h4>
+                    </a>
+                    <a class="{{isActiveRoute 'admin.businessOwners' class='active gray'}} item"
+                       href="{{pathFor 'admin.businessOwners'}}">
+                        Business Owners
+                    </a>
+                    <a class="{{isActiveRoute 'admin.homeOwners' class='active gray'}} item"
+                       href="{{pathFor 'admin.homeOwners'}}">
+                        Home Owners
+                    </a>
+                    <a class="{{isActiveRoute 'admin.neighborhoods' class='active gray'}} item"
+                       href="{{pathFor 'admin.neighborhoods'}}">
+                        Neighborhoods
+                    </a>
+                    <a class="{{isActiveRoute 'admin.serviceGroups' class='active gray'}} item"
+                       href="{{pathFor 'admin.serviceGroups'}}">
+                        Service Groups
+                    </a>
+                    <a class="{{isActiveRoute 'admin.serviceLocations' class='active gray'}} item"
+                       href="{{pathFor 'admin.serviceLocations'}}">
+                        Service Locations
+                    </a>
+                    <a class="{{isActiveRoute 'admin.specialtyTags' class='active gray'}} item"
+                       href="{{pathFor 'admin.specialtyTags'}}">
+                        Specialty Tags
+                    </a>
+                    <a class="{{isActiveRoute 'admin.changePassword' class='active gray'}} item"
+                       href="{{pathFor 'admin.changePassword'}}">
+                        Change Password
+                    </a>
+                    <a class="item" data-logout>Logout</a>
+                </div>
+
+                <div class="ui main grid">
+                    <div class="top-table">
+                        {{> Template.dynamic template=section }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

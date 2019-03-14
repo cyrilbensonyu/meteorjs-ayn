@@ -1,0 +1,44 @@
+<template name="login">
+    <div class="login-container col-md-2">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4>Login</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h5><strong>Login with Facebook</strong></h5>
+                <i class="fa fa-facebook-square fa-4x" id="loginWithFacebook"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h5><strong>Login with Email/Password</strong></h5>
+                <form class="form-horizontal" id="loginForm">
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Email</label>
+                        <div class="col-md-7">
+                            <input type="text" name="login-email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-5">Password</label>
+                        <div class="col-md-7">
+                            <input type="password" name="login-password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-ayn btn-sm">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <small>No account yet? <a href="{{pathFor 'auth.signup'}}">Sign up now for free</a></small>
+            </div>
+        </div>
+    </div>
+</template>

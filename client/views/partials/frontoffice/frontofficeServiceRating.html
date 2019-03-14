@@ -1,0 +1,130 @@
+<template name="frontofficeServiceRating">
+	<section class="service-rating">
+        <div class="container">
+            <div class="ui grid">
+                <div class="sixteen wide column">
+                    <h2>Your Business Could Be here</h2>
+                </div>
+            </div>
+            <div class="ui relaxed grid container">
+                <div class="sam-column five wide computer sixteen wide tablet column">
+                    <div class="happy-walter">
+                        <div class="cloud">
+                            <img src="/images/blue-arrow.png" class="blue-arrow">
+                            Sam loves this business!
+                        </div>
+                        <img class="walter-img" src="/images/sam/sam-5.png">
+                    </div>
+                </div>
+                <div class="service-column five wide computer sixteen wide tablet column">
+                    <div class="the-rating active">
+                        <div class="rating-image">
+                            <img src="/images/arborx.jpg">
+                        </div>
+                        <div class="description">
+                            <h4 class="title"><a href="#">Arborx Tree Services</a></h4>
+                            <h5>Service Rating: <span class="rating">8.5</span></h5>
+                            <p class="business-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            </p>
+                            <p class="phone">
+                                Phone: <strong>(734) 555.1212</strong>
+                            </p>
+                        </div>
+                        <div class="suggested">
+                            <div class="wrap">
+                                <p>
+                                Suggested by:
+                                </p>
+                                <br>
+                                <img src="/images/suggested1.png" data-popup data-popup-inline data-position="left center">
+                                {{> reviewSamplePopup}}
+                            </div>
+                            <a href="#">View More Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-column five wide computer sixteen wide tablet column">
+                    <div class="the-rating">
+                        <div class="rating-image">
+                            <img src="/images/green-service.jpg">
+                        </div>
+                        <div class="description">
+                            <h4 class="title"><a href="#">Green  Services Co</a></h4>
+                            <h5>Service Rating: <span class="rating">7.0</span></h5>
+                            <p class="business-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            </p>
+                            <p class="phone">
+                                Phone: <strong>(734) 555.1212</strong>
+                            </p>
+                        </div>
+                        <div class="suggested">
+                            <div class="wrap">
+                                <p>
+                                Suggested by:
+                                </p>
+                                <br>
+                                <img src="/images/suggested2.png" data-popup data-popup-inline data-position="left center">
+                                {{> reviewSamplePopup}}
+                            </div>
+                            <a href="#">View More Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-column five wide computer sixteen wide tablet column">
+                    <div class="the-rating">
+                        <div class="rating-image">
+                            <img src="/images/crystal-blu.jpg">
+                        </div>
+                        <div class="description">
+                            <h4 class="title"><a href="#">Crystal Blu</a></h4>
+                            <h5>Service Rating: <span class="rating">6.5</span></h5>
+                            <p class="business-description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            </p>
+                            <p class="phone">
+                                Phone: <strong>(734) 555.1212</strong>
+                            </p>
+                        </div>
+                        <div class="suggested">
+                            <div class="wrap">
+                                <p>
+                                    Suggested by:
+                                </p>
+                                {{> noReviewsAvailable}}
+                            </div>
+                            <a href="#">View More Info</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-column free-column five wide computer sixteen wide tablet column">
+                    <div class="claim">
+                        <div class="wrap">
+                            <img src="/images/claim.png">
+                            <p>
+                                Claim Your<br />Business<br />Profile for<br /><a href="{{pathFor 'auth.signup'}}"><span>FREE</span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ads-mobile">
+        <div class="service-column free-column five wide computer sixteen wide tablet column">
+            <div class="claim">
+                <div class="wrap">
+                    <img src="/images/claim.png">
+                    <p>
+                        Claim Your Business<br />Profile for<br />
+                        <a href="{{pathFor 'auth.signup'}}">
+                            <span>FREE</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

@@ -1,0 +1,10 @@
+<template name="textInput">
+    <div class="field">
+        {{#if withLabel label}}
+            <label for="{{name}}">{{formatName name}} <span class="required">*</span></label>
+        {{/if}}
+        <input type="{{getType type}}" value="{{value}}" id="{{#if idPrefix}}{{idPrefix}}-{{/if}}{{name}}"
+               placeholder="{{formatName name}}" class="{{#if class}}{{class}}{{/if}}">
+        <p class="error-message required"></p>       
+    </div>
+</template>

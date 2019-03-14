@@ -1,0 +1,93 @@
+<template name="controlpanelBusinessOwners">
+    <div class="ui segments">
+        <div class="ui segment">
+            <h3 class="ui blue header">Business Owners</h3>
+        </div>
+        {{#if edit}}
+            <div class="row">
+                <div class="col-md-12 text-left">
+                    <a href="{{pathFor 'admin.businessOwners'}}" class="btn btn-primary">Back</a>
+                </div>
+            </div>
+            {{> controlpanelEditBusinessOwner }}
+        {{else}}
+            {{#if create}}
+                <div class="ui segment">
+                    <div class="col-md-12 text-left">
+                        <a href="{{pathFor 'admin.businessOwners'}}" class="btn btn-primary">Back</a>
+                    </div>
+                </div>
+                {{> controlpanelCreateBusinessOwner }}
+            {{else}}
+                <div class="row">
+                    <div class="col-md-12 text-left">
+                        <a href="{{pathFor 'admin.businessOwners.create'}}" class="btn btn-success disabled">Create new
+                            Business Owner</a>
+                    </div>
+                </div>
+                <div class="ui segment">
+                    <div class="col-md-12">
+                        <table class="ui celled table">
+                            <thead>
+                            <tr>
+                                <th>Business Name</th>
+                                <th>Owner</th>
+                                <th>Address</th>
+                                <th>Phone Number</th>
+                                <th class="two wide">Website</th>
+                                <th class="two wide">Email</th>
+                                <th>Service Group</th>
+                                <th>Registration complete</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#if hasBusinessOwners}}
+                                {{#each getBusinessOwners}}
+                                    <tr>
+                                        <td>{{businessName}}</td>
+                                        <td>{{firstName}} {{lastName}}</td>
+                                        <td>{{address}}</td>
+                                        <td>{{phoneNumber}}</td>
+                                        <td>{{website}}</td>
+                                        <td>{{email}}</td>
+                                        <td>{{serviceGroupName}}</td>
+                                        <td>{{yesNo step2Complete}}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="{{pathFor 'admin.businessOwners.edit' id=_id}}"
+                                                   class="ui primary button editBusinessOwner">Edit</a> 
+                                                {{#if isSuspended suspended}}
+                                                    <button type="button" class="ui positive button resumeBusinessOwner">
+                                                        Resume
+                                                    </button>
+                                                {{else}}
+                                                    <button type="button"
+                                                            class="negative ui button suspendBusinessOwner">
+                                                        Suspend
+                                                    </button>
+                                                {{/if}}
+                                                <button type="button" class="ui secondary button remove">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            {{else}}
+                                <tr>
+                                    <td colspan="3">
+                                        <div class="alert alert-info">
+                                            <p>
+                                                No Business Owners
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</template>

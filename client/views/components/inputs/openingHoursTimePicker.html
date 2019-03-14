@@ -1,0 +1,11 @@
+<template name="openingHoursTimePicker">
+    <div class="form-group">
+        <label for="openingHours{{formatDay day}}">{{formatDay day}}</label>
+
+        <div class="opening-range">
+	        <input type="text" id="{{ day }}-start-time" class="timepicker start-time" data-day="{{ day }}" value="{{ startTime }}"> 
+	        <span class="to">to</span>
+	        <input type="text" id="{{ day }}-end-time" class="timepicker end-time" data-day="{{ day }}" value="{{ endTime }}">
+        </div>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+.login-container{
+  position:absolute;
+  border: 10px solid #049FA2;
+  padding:5px;
+  z-index:999999999;
+  background:rgba(255,255,255,1);
+}
+.text-orange{
+  color:#FF8877;
+}
+.btn-orange{
+  background-color:#FF8877;
+  color:#FFFFFF;
+}
+.btn-orange:hover{
+  color:#FFFFFF;
+}
+.btn-ayn{
+  background-color:#049FA2;
+  color:white;
+}
+.btn-ayn:hover{
+  color:white;
+}
+i.fa.fa-facebook-square{
+  color:#3B5998;
+}
+i.fa.fa-facebook-square:hover{
+  cursor:pointer;
+}

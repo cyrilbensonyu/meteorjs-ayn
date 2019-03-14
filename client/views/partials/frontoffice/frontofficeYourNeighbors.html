@@ -1,0 +1,592 @@
+<template name="frontofficeYourNeighbors">
+    <section class="your-neighbors">
+        {{#if isNotLoggedIn currentUser }}
+            <div class="container search-container">
+                <div class="ui grid">
+                    <div class="sixteen wide column">
+                        <div class="search-neighbors">
+                            <div class="search-sam-img">
+                                <img class="walter-img" src="/images/sam/sam-5.png">
+                            </div>
+
+                            <div class="search-box">
+                                <h4>
+                                    <span class="top-text">See which services</span>
+                                    <span class="middle-text">YOUR friends</span> 
+                                    <span class="bottom-text">and neighbors recommend</span>
+                                </h4>
+                                <form action="" method="">
+                                    <div class="input-group ui padded grid">
+                                        <input type="text" class="form-control fifteen wide column right attached" name=""
+                                               id="searchQuery"/>
+                                        <input type="submit" class="postfix form-control one wide column left attached"
+                                               name="send" value="&#xf002;" id="search-submit"/>
+
+                                        <button class="postfix form-control one wide column left attached clear-btn"><i class="fa fa-close" aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
+                                <h4>or click a service below</h4>
+                            </div>
+                            
+                            <div class="search-sam-img-mobile">
+                                <img class="walter-img" src="/images/sam/sam-5.png">
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+        {{#if isInactiveSearch}}
+            <div class="container category-container">
+                <div class="ui stackable grid results-container">
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="ELECTRICAL">
+                                <img src="/images/service.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="ELECTRICAL"><span><img src="/images/electrical.png"></span><p class="service-title">ELECTRICAL</p></h4>
+                                <p class="servicer">
+                                    <a href="">
+                                        Great Electricians<br/>like Jason<br/>at Watts Electrical<br/>
+                                    </a>
+                                </p>
+                                <p class="review category" data-category="ELECTRICAL">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Electrical' }}
+                                                Reviewed by {{ serviceGroupHasReviews 'Electrical' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="HANDYMAN">
+                                <img src="/images/handyman.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="HANDYMAN"><span><img src="/images/handyman.png"></span><p class="service-title">HANDYMAN</p></h4>
+                                <p class="servicer">
+                                    <a href="">
+                                        Great Handyman<br/>like John<br/>at Easy Repairs<br/>
+                                    </a>
+                                </p>
+                                <p class="review category" data-category="HANDYMAN">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Handymen' }}
+                                                Reviewed by {{ serviceGroupHasReviews 'Handymen' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="HEATING AND AIR">
+                                <img src="/images/heating.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="HEATING AND AIR"><span><img src="/images/heating.png"></span><p class="service-title">HEATING AND AIR</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great Heating and Air<br/>at Union Co.<br/></a>
+                                </p>
+                                <p class="review category" data-category="HEATING AND AIR">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Heating and Air' }}
+                                                Reviewed by {{ serviceGroupHasReviews 'Heating and Air' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="CARPET CLEANING">
+                                <img src="/images/cleaning.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="CARPET CLEANING"><span><img src="/images/cleaning.png"></span><p class="service-title">CARPET CLEANING</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great Carpet Cleaners<br/>like Jason<br/>at Flizz<br/></a>   
+                                </p>
+                                <p class="review category" data-category="CARPET CLEANING">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Carpet Cleaning'}}
+                                                Reviewed by {{ serviceGroupHasReviews 'Carpet Cleaning' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="HOUSE CLEANING">
+                                <img src="/images/hc.png">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="HOUSE CLEANING"><span><img src="/images/house_cleaning.png"></span><p class="service-title">HOUSE CLEANING</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great House Cleaning<br/>with Leeroy<br/>at Dawnscape<br/></a>
+                                </p>
+                                <p class="review category" data-category="HOUSE CLEANING">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'House Cleaning'}}
+                                                Reviewed by {{ serviceGroupHasReviews 'House Cleaning' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="PEST CONTROL">
+                                <img src="/images/pestcontrol.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="PEST CONTROL"><span><img src="/images/pestcontrol.png"></span><p class="service-title">PEST CONTROL</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great Pest Control<br/>with Chris<br/>at Cogost<br/></a>
+                                </p>
+                                <p class="review category" data-category="PEST CONTROL">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Pest Control'}}
+                                                Reviewed by {{ serviceGroupHasReviews 'Pest Control' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="PAINTING">
+                                <img src="/images/painting.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="PAINTING"><span><img src="/images/painting.png"></span><p class="service-title">PAINTING</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great Painters<br/>like Anna<br/>at Ivoryslab<br/></a>
+                                </p>
+                                <p class="review category" data-category="PAINTING">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Painting'}}
+                                                Reviewed by {{ serviceGroupHasReviews 'Painting' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four wide doubling column">
+                        <div class="services">
+                            <div class="service-image category" data-category="PLUMBING">
+                                <img src="/images/plumbing.jpg">
+                            </div>
+                            <div class="description">
+                                <h4 class="category" data-category="PLUMBING"><span><img src="/images/plumbing.png"></span><p class="service-title">PLUMBING</p></h4>
+                                <p class="servicer">
+                                    <a href="">Great Plumbers<br/>like Bill<br/>at Best Plumbers<br/></a>
+                                </p>
+                                <p class="review category" data-category="PLUMBING">
+                                    <a href="#">
+                                        <strong>
+                                            {{#if serviceGroupHasReviews 'Plumbing'}}
+                                                Reviewed by {{ serviceGroupHasReviews 'Plumbing' }} Neighbors
+                                            {{else}}
+                                                No Reviews
+                                            {{/if}}
+                                        </strong>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </section>
+    <section class="service-rating">
+        {{#if isInactiveSearch}}
+            <div class="container">
+                <div class="ui grid">
+                    <div class="sixteen wide column">
+                        <h2>Your Business Could Be here</h2>
+                    </div>
+                </div>
+                <div class="ui relaxed grid container">
+                    <div class="sam-column five wide computer sixteen wide tablet column">
+                        <div class="happy-walter">
+                            <div class="cloud">
+                                <img src="/images/blue-arrow.png" class="blue-arrow">
+                                Sam loves this business!
+                            </div>
+                            <img class="walter-img" src="/images/sam/sam-5.png">
+                        </div>
+                    </div>
+                    <div class="service-column five wide computer sixteen wide tablet column">
+                        <div class="the-rating active">
+                            <div class="rating-title">
+                                <h4 class="title"><a href="#">Arborx Tree Services</a></h4>
+                            </div>
+                            <div class="rating-info">
+                                <div class="rating-image">
+                                    <img src="/images/arborx.jpg">
+                                </div>
+
+                                <div class="rating">
+                                    <h5>
+                                        <p> Rating </p>
+                                        <span class="rating-number">5.0</span>
+                                        <span class="max-rating">out of 5</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <h4 class="title"><a href="#">Arborx Tree Services</a></h4>
+                                <h5>
+                                    Service Rating: 
+                                    <span class="rating">5.0</span>
+                                    <span class="max-rating">out of 5</span>
+                                </h5>
+                                <p class="business-description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                </p>
+                                <p class="phone">
+                                    Phone: <strong>(734) 555.1212</strong>
+                                </p>
+                            </div>
+                            <div class="suggested">
+                                <div class="wrap">
+                                    <p>
+                                        Suggested by:
+                                    </p>
+                                    <br>
+                                    <img src="/images/suggested1.png">
+                                    {{> reviewSamplePopup}}
+                                </div>
+                                <a href="#">View More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-column five wide computer sixteen wide tablet column">
+                        <div class="the-rating">
+                            <div class="rating-title">
+                                <h4 class="title"><a href="#">Green Services Co</a></h4>
+                            </div>
+
+                            <div class="rating-info">
+                                <div class="rating-image">
+                                    <img src="/images/green-service.jpg">
+                                </div>
+
+                                <div class="rating">
+                                    <h5>
+                                        <p> Rating </p>
+                                        <span class="rating-number">5.0</span>
+                                        <span class="max-rating">out of 5</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <h4 class="title"><a href="#">Green Services Co</a></h4>
+                                <h5>
+                                    Service Rating: 
+                                    <span class="rating">5.0</span>
+                                    <span class="max-rating">out of 5</span>
+                                </h5>
+                                <p class="business-description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                </p>
+                                <p class="phone">
+                                    Phone: <strong>(734) 555.1212</strong>
+                                </p>
+                            </div>
+                            <div class="suggested">
+                                <div class="wrap">
+                                    <p>
+                                        Suggested by:
+                                    </p>
+                                    <br>
+                                    <img src="/images/suggested2.png">
+                                    {{> reviewSamplePopup}}
+                                </div>
+                                <a href="#">View More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-column five wide computer sixteen wide tablet column">
+                        <div class="the-rating">
+                            <div class="rating-title">
+                                <h4 class="title"><a href="#">Green Services Co</a></h4>
+                            </div>
+                            
+                            <div class="rating-info">
+                                <div class="rating-image">
+                                    <img src="/images/crystal-blu.jpg">
+                                </div>
+                                
+                                <div class="rating">
+                                    <h5>
+                                        <p> Rating </p>
+                                        <span class="rating-number">5.0</span>
+                                        <span class="max-rating">out of 5</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="description">
+                                <h4 class="title"><a href="#">Crystal Blu</a></h4>
+                                <h5>
+                                    Service Rating: 
+                                    <span class="rating">5.0</span>
+                                    <span class="max-rating">out of 5</span>
+                                </h5>
+                                <p class="business-description">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut
+                                </p>
+                                <p class="phone">
+                                    Phone: <strong>(734) 555.1212</strong>
+                                </p>
+                            </div>
+                            <div class="suggested">
+                                <div class="wrap">
+                                    <p>
+                                        Suggested by:
+                                    </p>
+                                    <br>
+                                    {{> noReviewsAvailable}}
+                                </div>
+                                <a href="#">View More Info</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-column free-column five wide computer sixteen wide tablet column">
+                        <div class="claim">
+                            <div class="wrap">
+                                <img src="/images/claim.png">
+                                <p>
+                                    Claim Your<br/>Business<br/>Profile for<br/><a
+                                        href="{{pathFor 'auth.signup'}}"><span>FREE</span></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+
+            {{#if currentUser}}
+                {{#if hasSearchResults}}
+                    <div class="container" style="margin-top:25px;">
+                        <div class="ui relaxed grid container">
+                            <div class="sam-column five wide computer sixteen wide tablet column">
+                                <div class="happy-walter">
+                                    <div class="cloud">
+                                        <img src="/images/blue-arrow.png" class="blue-arrow">
+                                        Sam loves this business!
+                                    </div>
+                                    <img class="walter-img" src="/images/sam/sam-5.png">
+                                </div>
+                            </div>
+                            {{#each getSearchResults}}
+                                <div class="service-column five wide computer sixteen wide tablet column">
+                                    <div class="the-rating">
+                                        <div class="rating-title">
+                                            <h4 class="title"><a href="#" class="seeBusinessReviews">{{businessName}}</a></h4>
+                                        </div>
+                                        <div class="rating-info">
+                                            <div class="rating-image">
+                                                <a href="" class="seeBusinessReviews">
+                                                    {{#with businessPhoto _id }}
+                                                        <img src="{{ link }}" alt="{{ name }}" onError="this.onerror=null;this.src='/images/default.jpg';" />
+                                                    {{else}}
+                                                        <img src="{{ defaultImage serviceGroup }}" alt="Default Image">
+                                                    {{/with}}
+                                                </a>
+                                            </div>
+
+                                            <div class="rating">
+                                                {{#if has reviews}}
+                                                    <h5>
+                                                        <p> Rating </p>
+                                                        <span class="rating-number">{{averageRating}}</span>
+                                                        <span class="max-rating">out of 5</span>
+                                                    </h5>
+                                                {{else}}    
+                                                    <h5>
+                                                        <p> Rating </p>
+                                                        N/A
+                                                    </h5>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <h4 class="title"><a href="#" class="seeBusinessReviews">{{businessName}}</a></h4>
+                                            
+                                            <h5>
+                                                {{#if hasReviews _id}}
+                                                    Service Rating: <span class="rating">{{averageRating _id}}</span><span class="max-rating">out of 5</span>
+                                                {{else}}
+                                                    Service Rating: N/A
+                                                {{/if}}
+                                            </h5>
+                                            
+                                            <p class="business-description">
+                                                {{truncateWithEllipsis businessDescription 100}}
+                                            </p>
+                                            <p class="phone">
+                                                Phone: <strong>{{phoneNumber}}</strong>
+                                            </p>
+                                        </div>
+                                        <div class="suggested">
+                                            <div class="wrap">
+                                                <p>
+                                                    Suggested by:
+                                                </p>
+                                                <br>
+                                                 {{#if hasApprovalRatings _id }}
+                                                    <div class="advisor-imgs">
+                                                        {{#each getApprovalRatings _id }}
+                                                            <div class="suggestor-image-container">
+                                                                {{#with profileImage user }}
+                                                                    <img src="{{ link }}" alt="{{ name }}" class="user-approval-photo" onError="this.onerror=null;this.src='/images/default.jpg';">
+                                                                {{ else }} 
+                                                                    {{#with fbProfile user }}  
+                                                                        <img src="{{ picture }}" alt="Facebook Photo" class="user-approval-photo">
+                                                                    {{else}}
+                                                                        <img src="/images/sam/sam-5-small.png" alt="Placeholder Photo" class="user-approval-photo"> 
+                                                                    {{/with}} 
+                                                                {{/with}} 
+                                                            </div>       
+                                                        {{/each}}       
+                                                    </div>    
+                                                {{else}}
+                                                    {{> noReviewsAvailable}}
+                                                {{/if}}
+                                            </div>
+                                            <a href="#" class="seeBusinessReviews">View More Info</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                            <div class="service-column free-column five wide computer sixteen wide tablet column">
+                                <div class="claim">
+                                    <div class="wrap">
+                                        <img src="/images/claim.png">
+                                        <p>
+                                            Claim Your<br/>Business<br/>Profile for<br/><a
+                                                href="{{pathFor 'auth.signup'}}"><span>FREE</span></a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="container search-not-found-container" style="margin-top:25px;">
+                        <div class="ui centered grid">
+                            <div class="eleven wide column">
+                                <div class="ui orange center aligned segment">
+
+                                    <div class="ui middle aligned grid container">
+                                        <div class="sixteen wide column">
+                                            <h3>Seems like Sam doesn't know the business you're searching for...</h3>
+                                        </div>
+                                        <div class="six wide column">
+                                            <img src="/images/sam/sam-6-large.png" style="margin-bottom:-19px; width: 100%;">
+                                        </div>
+                                        <div class="ten wide column suggestion">
+                                            <p class="very padded text container">
+                                                <strong>Maybe try something else? <br>
+                                                (or try it again later, Sam is quite old and sometimes forgets things)</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            {{else}}
+                <div class="login-to-search-container" style="margin-top:25px;">
+                    <div class="ui centered grid grid-container">
+                        <div class="eleven wide column">
+                            <div class="ui orange center aligned segment">
+
+                                <div class="ui middle aligned grid container">
+                                    <div class="sixteen wide column">
+                                        <h3>In order to see results you must be part of our community. Click to register or login now so you can see who your friends and neighbors recommend.</h3>
+                                    </div>
+                                </div>
+
+                                <div class="ui middle aligned grid container navigation-container">
+
+                                    <div class="six wide column">
+                                        <a href="{{pathFor 'auth.signup'}}" class="add-button register-button">Register</a>
+                                    </div>
+                                        
+                                    <div class="six wide column">
+                                        <a href="{{pathFor 'auth.login'}}" class="add-button login-button">Login</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}    
+        {{/if}}
+    </section>
+
+   <section class="ads-mobile">
+        <div class="service-column free-column five wide computer sixteen wide tablet column">
+            <div class="claim">
+                <div class="wrap">
+                    <img src="/images/claim.png">
+                    <p>
+                        Claim Your Business<br />Profile for<br />
+                        <a href="{{pathFor 'auth.signup'}}">
+                            <span>FREE</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

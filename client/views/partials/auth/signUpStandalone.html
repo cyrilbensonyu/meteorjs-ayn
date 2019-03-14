@@ -1,0 +1,31 @@
+<template name="signUpStandalone">
+    {{#if currentUser }}
+        {{> frontOfficeSearchBanner}}
+    {{else}}
+        <div class="login-container-standalone">
+            <h2 class="sign-up-title">Sign Up Your Business</h2>
+            <div class="ui centered grid">
+                <div class="sixteen wide center aligned column">
+                    <button class="fb-login-btn" id="signUpWithFacebook">With Facebook</button>
+                </div>
+                <div class="sixteen wide center aligned column">
+                    <span>--------------- or --------------</span>
+                </div>
+                <div class="sixteen wide center aligned column">
+                    <div class="ui center column">
+                        <a href="" id="showSignUpForm">With Email and Password?</a>
+                    </div>
+                    <form class="ui form hidden" id="signUpForm">
+                        <div class="block field">
+                            <input type="text" name="signup-email" placeholder="Email">
+                        </div>
+                        <div class="block field">
+                            <input type="password" name="signup-password" placeholder="Password">
+                        </div>
+                        <button class="ui orange button" type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>

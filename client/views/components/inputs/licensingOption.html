@@ -1,0 +1,7 @@
+<template name="licensingOption">
+	{{#if equals value licensing}}
+		<option value="{{ value }}" selected="">{{ option }}</option>
+	{{else}}
+		<option value="{{ value }}">{{ option }}</option>
+	{{/if}}
+</template>

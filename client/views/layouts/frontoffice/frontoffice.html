@@ -1,0 +1,32 @@
+<template name="frontoffice">
+    <div class="main-container">
+        <!-- <header class="header">
+            <div class="ui fluid container">
+                <div class="ui one column doubling stackable grid container">
+                    <div class="column">
+                        <div class="site-head">
+                            <div class="ui grid">     
+                                <div class="three wide site-head-img">
+                                    <img class="walter-img" src="/images/sam-5.png">
+                                </div>
+                                <center class="three wide">
+                                    <h1>
+                                        Are you a neighbor who<br /><span>OWNS A BUSINESS?</span>
+                                    </h1>
+                                </center>
+                                <a href="{{pathFor 'auth.signup'}}" class="add-button three wide"><i class="fa fa-plus"></i> Add Your Business</a>
+                                <div class="mobile-only-buttons header-buttons">
+                                    <a href="{{pathFor 'auth.signup'}}" class="add-button"><i class="fa fa-plus"></i> Add Your Business</a>
+                                    <a href="{{pathFor 'auth.signup'}}" class="add-button login-mobile"><i class="fa fa-sign-in"></i> Add Your Business</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="login"><a href="{{pathFor 'auth.login'}}">login</a></div>
+        </header> -->
+        <!--{{> login}}-->
+        {{> Template.dynamic template=template }}
+    </div>
+</template>

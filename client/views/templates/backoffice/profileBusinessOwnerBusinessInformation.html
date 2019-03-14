@@ -1,0 +1,205 @@
+<template name="profileBusinessOwnerBusinessInformation">
+
+    <form class="ui form {{ hideIfNotComplete _id }}" id="formBusinessProfile">
+        <div class="ui centered grid profile-form-container profile-business-container">
+            <div class="row title-main-container">
+                <div class="sixteen wide center aligned column">
+                    <h3>Business Information</h3>
+                </div>
+            </div>
+            <div class="sixteen wide center aligned column">
+                <div class="field">
+                    {{#with currentUpload}}
+                        Uploading <b>{{file.name}}</b>:
+                        <span id="progress">{{progress.get}}%</span>
+                    {{else}}
+
+                        <div class="upload-business-photo-container">
+                            <a href="#" class="ui orange button" id="browse-business-photo">Upload Business Picture</a>
+                            <input type="file" class="hidden hide" id="upload-business-photo" accept="image/*">
+                        </div>
+                    {{/with}}
+
+                    {{#with businessImage}}
+                        <div class="field business-image-container">
+                            <img src="{{ link }}" alt="{{ name }}" />
+
+                            <input type="hidden" name="businessImage" id="businessImage" value="{{ _id }}">
+                        </div>
+                    {{else}} 
+                        <div class="field business-image-container">
+                            <img src="/images/placeholder-image.jpg" alt="Placeholder Image" class="placholder-business-image">
+                        </div>   
+                    {{/with}}
+
+                </div>
+
+                <div class="two fields">
+                    {{> textInput name="businessName" value=businessName class="required"}}
+                    <div class="field">
+                        <label for="serviceGroups">Service Groups <span class="required">*</span></label>
+                        <select multiple class="select2 required" id="serviceGroup"
+                                data-tags-enabled="true" data-placeholder="Select Service Group" data-selected="{{serviceGroup}}" placeholder="Service Group">
+                            <option></option>
+                            {{#each getServiceGroups}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <p class="error-message required"></p>
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label for="firstName">
+                            Primary Contact's First Name <span class="required">*</span>
+                        </label>
+                        
+                        <input type="text" id="firstName" placeholder="Primary Contact's First Name" value="{{ firstName }}" class="required">
+                        <p class="error-message required"></p>
+                    </div>
+                    <div class="field">
+                        <label for="lastName">
+                            Primary Contact's Last Name <span class="required">*</span>
+                        </label>
+                        
+                        <input type="text" id="lastName" placeholder="Primary Contact's Last Name" value="{{ lastName }}">
+                        <p class="error-message required"></p>
+                    </div>
+                </div>
+                <div class="two fields">
+                    {{> textInput name="address" value=address class="required"}}
+                    {{> textInput name="email" type="email" value=email class="required"}}
+                </div>
+                <div class="two fields">
+
+                    {{> textInput name="phoneNumber" value=phoneNumber class="required"}}
+                    {{> textInput name="website" value=website class="required"}}
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label for="serviceGroup">Service Locations</label>
+                        <select multiple class="form-control select2 required" id="serviceLocations"
+                                data-tags-enabled="true" data-selected="{{serviceLocations}}" data-placeholder="Select Service Location" placeholder="Service Location">
+                            {{#each getServiceLocations}}
+                                <option value="{{_id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <p class="error-message required"></p>
+                    </div>
+                    {{> textInput name="yearsBusinessCreated" type="number" value=yearsBusinessCreated class="required"}}
+                </div>
+                <div class="ui centered grid category-container">
+                    <div class="eight wide column container">
+                        <div class="title">Please Select If Your Business Is</div>
+                        <div class="two wide column inline fields">
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" id="isInsured" tabindex="0" class="hidden" checked={{isInsured}}>
+                                    <label>Insured</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui checkbox">
+                                    <input type="checkbox" id="isBonded" tabindex="0" class="hidden" checked={{isBonded}}>
+                                    <label>Bonded</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eight wide column">
+                            <div class="field">
+                                <select class="licensing" name="licensing" id="licensing">
+                                    {{> licensingOption value=1 option="Not Licensed" licensing=licensing }}
+                                    {{> licensingOption value=2 option="Licensed" licensing=licensing }}
+                                    {{> licensingOption value=3 option="No Licensing Required" licensing=licensing }}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Business Description</label>
+                    <textarea id="businessDescription" rows="6" style="resize:none;">{{businessDescription}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="ui centered grid form-container-opening">
+        <div class="opening"><h3>Opening Hours</h3></div>
+            <div class="sixteen wide center aligned column">
+                <div class="two fields">
+                    <div class="field">
+                        {{> openingHoursTimePicker day="monday" 
+                        startTime=openingHours.monday_start_time endTime=openingHours.monday_end_time}}
+                    </div>
+                    <div class="field">
+                        {{> openingHoursTimePicker day="friday" 
+                        startTime=openingHours.friday_start_time endTime=openingHours.friday_end_time}}
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        {{> openingHoursTimePicker day="tuesday" startTime=openingHours.tuesday_start_time endTime=openingHours.tuesday_end_time}}
+                    </div>
+                    <div class="field">
+                        {{> openingHoursTimePicker day="saturday" 
+                        startTime=openingHours.saturday_start_time endTime=openingHours.saturday_end_time}}
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        {{> openingHoursTimePicker day="wednesday" 
+                        startTime=openingHours.wednesday_start_time endTime=openingHours.wednesday_end_time}}
+                    </div>
+                    <div class="field">
+                        {{> openingHoursTimePicker day="sunday" 
+                        startTime=openingHours.sunday_start_time endTime=openingHours.sunday_end_time}}
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        {{> openingHoursTimePicker day="thursday" 
+                        startTime=openingHours.thursday_start_time endTime=openingHours.thursday_end_time}}
+                    </div>
+                    <div class="inline field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" id="24hours" value="24hours" class="hidden"
+                                   checked={{openingHours.availableForEmergency}}>
+                            <label>Available for 24 hours emergency service</label>
+                        </div>
+                    </div>
+                </div>   
+
+                <div class="ui centered grid custom-container">
+                    <div class="field">
+                        <label for="share">Share Custom Page</label>
+                        <div class="input-group ui padded grid">
+                            <input type="text" id="share" value="{{ shareUrl _id }}" readonly>
+                            <button type="button" class="copy-url"  data-clipboard-action="copy" data-clipboard-target="#share">
+                                <i class="fa fa-files-o" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <button type="submit" class="ui orange button save">Save</button>
+                    </div>
+                </div>             
+            </div>
+        </div>       
+        <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+        <!--<form class="form">-->
+        <!---->
+        <!--<div class="row">-->
+        <!--<div class="col-md-12">-->
+        <!--<h5>Company Profile Picture</h5>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-8">-->
+        <!--UPLOAD-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</form>-->
+        <!--</div>-->
+        <!--</div>-->
+    </form>    
+</template>
